@@ -11,7 +11,7 @@ import com.dbserver.agenda.repositories.AgendaRepository;
 
 
 @Controller
-public class IndexController {
+public class AgendaController {
 	@Autowired
 	AgendaRepository agendaRepository;
 	

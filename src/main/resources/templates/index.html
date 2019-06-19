@@ -1,7 +1,7 @@
 <html>  
 	<head>  
     	<title>Agenda</title> 
-    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/css/uikit.min.css" />   
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/css/uikit.min.css" />
 	</head>  
 	<body>  
     	<div class="uk-container"> 
@@ -10,7 +10,8 @@
             	<thead> 
                 	<tr> 
                     	<th>Nome do contato</th> 
-                    	<th>Número do telefone</th> 
+                    	<th>Número do telefone</th>
+                    	<th>Local</th>
                 	</tr> 
             	</thead> 
             	<tbody> 
@@ -18,6 +19,10 @@
 					<tr th:each="agenda : ${agenda}">
 					    <td th:text="${agenda.nome}"></td>
 					    <td th:text="${agenda.telefone}"></td>
+					    <td th:text="${agenda.local}"></td>
+					    <td><a th:href="@{'/editar/' + ${agenda.id}}">Editar</a></td>
+   						<td><a th:href="@{'/excluir/' + ${agenda.id}}">Excluir</a></td>
+					    
 					</tr>
  
             	</tbody> 
@@ -34,6 +39,9 @@
                         </div>
                         <div class="uk-margin">
                             <input class="uk-input" type="text" name="telefone" placeholder="Numero de telefone">
+                        </div>
+                        <div class="uk-margin">
+                            <input class="uk-input" type="text" name="local" placeholder="Local">
                         </div>
                     </fieldset>
                     <p class="uk-text-right">

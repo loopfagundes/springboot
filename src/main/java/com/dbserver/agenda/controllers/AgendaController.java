@@ -1,8 +1,11 @@
 package com.dbserver.agenda.controllers;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -30,6 +33,12 @@ public class AgendaController {
 	    agendaRepository.save(agenda);
 	    return "redirect:/";
 	}
+
 	
-	
+	@GetMapping("/excluir/{id}")
+	@Transactional
+	public String excluirContato(@PathVariable("id") Long id) {
+	    agendaRepository.deleteById(id);
+	    return "redirect:/";
+	}
 }

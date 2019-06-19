@@ -23,7 +23,10 @@ public class AgendaModel implements Serializable {
 
 	@Column(name="telefone", nullable=false)
 	private String telefone;
-
+	
+	@Column(name="local", nullable=false)
+	private String local;
+	
 	public long getId() {
 		return id;
 	}
@@ -47,4 +50,13 @@ public class AgendaModel implements Serializable {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+	
+	public String getLocal() {
+		return local;
+	}
+
+	public void setlocal(String local) {
+		this.local = local;
+	}
+	
 }

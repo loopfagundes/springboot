@@ -21,10 +21,8 @@ public class AgendaController {
 	@GetMapping("/")
 	public ModelAndView index() {
 		ModelAndView modelView = new ModelAndView("index");
-		
 		Iterable<AgendaModel> agenda = agendaRepository.findAll();
-		modelView.addObject("agenda", agenda);
-			
+		modelView.addObject("agenda", agenda);	
 		return modelView;
 	}
 	
@@ -33,12 +31,25 @@ public class AgendaController {
 	    agendaRepository.save(agenda);
 	    return "redirect:/";
 	}
-
+	
+	@GetMapping("/editar/{id}")
+	public ModelAndView detalhesContato(@PathVariable("id") Long id) {
+	    ModelAndView modelView = new ModelAndView("editar");
+	    Iterable<AgendaModel> agenda = agendaRepository.findById(id);
+	    modelView.addObject("agenda", agenda);
+	    return modelView;
+	}
+	
+	@PostMapping("/editar")
+	public String editarContato(AgendaModel agenda) {
+	    agendaRepository.save(agenda);
+	    return "redirect:/";
+	}
 	
 	@GetMapping("/excluir/{id}")
 	@Transactional
 	public String excluirContato(@PathVariable("id") Long id) {
-	    agendaRepository.deleteById(id);
+		agendaRepository.deleteById(id);
 	    return "redirect:/";
 	}
 }

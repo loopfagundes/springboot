@@ -9,19 +9,23 @@
         	<table class="uk-table uk-table-striped"> 
             	<thead> 
                 	<tr> 
+                		<th>Tipo</th>
                     	<th>Nome do contato</th> 
                     	<th>Número do telefone</th>
+                    	<th>Data</th>
                     	<th>Local</th>
                 	</tr> 
             	</thead> 
             	<tbody> 
                 	
 					<tr th:each="agenda : ${agenda}">
+					    <td th:text="${agenda.tipo}"></td>
 					    <td th:text="${agenda.nome}"></td>
 					    <td th:text="${agenda.telefone}"></td>
+					    <td th:text="${agenda.data}"></td>
 					    <td th:text="${agenda.local}"></td>
-					    <td><a th:href="@{'/editar/' + ${agenda.id}}">Editar</a></td>
-   						<td><a th:href="@{'/excluir/' + ${agenda.id}}">Excluir</a></td>    
+					    <td><a th:href="@{'/editar/' + ${agenda.id}}"><span uk-icon="file-edit"></span></a></td>
+   						<td><a th:href="@{'/excluir/' + ${agenda.id}}"><span uk-icon="trash"></span></a></td>  
 					</tr>
  
             	</tbody> 
@@ -33,15 +37,28 @@
                 <form th:action="@{/}" method="post" enctype="multipart/form-data">
                     <fieldset class="uk-fieldset">
                         <legend class="uk-legend">Novo contato</legend>
+                       
+                        <div class="uk-margin">
+                       	    <select class = "uk-select" name="tipo">
+  							     <option value="Aniversário" selected>Aniversário</option>
+						 		 <option value="Compromisso">Compromisso</option> 
+							</select>
+ 						</div>
+ 						
                         <div class="uk-margin">
                             <input class="uk-input" type="text" name="nome" placeholder="Nome de contato">
                         </div>
                         <div class="uk-margin">
                             <input class="uk-input" type="text" name="telefone" placeholder="Numero de telefone">
                         </div>
+                        
+                        <div class="uk-margin">
+                       		 <input id="date" type="date" name="data">
+                        </div>
+                        
                         <div class="uk-margin">
                             <input class="uk-input" type="text" name="local" placeholder="Local">
-                        </div>
+                        </div>                
                     </fieldset>
                     <p class="uk-text-right">
                         <button class="uk-button uk-button-primary" type="submit">Adicionar</button>

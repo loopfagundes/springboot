@@ -27,6 +27,12 @@ public class AgendaModel implements Serializable {
 	@Column(name="local", nullable=false)
 	private String local;
 	
+	@Column(name="data", nullable=false)
+	private String data;
+	
+	@Column(name="tipo", nullable=false)
+	private String tipo;
+	
 	public long getId() {
 		return id;
 	}
@@ -57,6 +63,22 @@ public class AgendaModel implements Serializable {
 
 	public void setlocal(String local) {
 		this.local = local;
+	}
+
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 	
 }

@@ -42,7 +42,7 @@ public class AgendaController {
 	
 	@PostMapping("/editar")
 	public String editarContato(AgendaModel agenda) {
-		agenda.setDataStringToData();//mudamos de data2 para dataString, tem que mudar no html
+		agenda.setDataStringToData();
 	    agendaRepository.save(agenda);
 	    return "redirect:/";
 	}

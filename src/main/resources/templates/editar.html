@@ -10,10 +10,10 @@
                 <form class="uk-form-horizontal uk-margin-large" th:action="@{/editar}" method="post" enctype="multipart/form-data">
        					
                         <div class="uk-margin">
-                        <select name="tipo">
-  						  <option value="Aniversário" selected>Aniversário</option>
-						  <option value="Compromisso">Compromisso</option> 
-						</select>
+                       	    <select class = "uk-select" name="tipo">
+  							     <option value="Aniversário" selected>Aniversário</option>
+						 		 <option value="Compromisso">Compromisso</option> 
+							</select>
  						</div>
  
        					
@@ -31,7 +31,7 @@
                         
                         <div class="uk-margin">
                             <label class="uk-form-label" for="form-horizontal-text">Data</label>
-                        	<input id="date" type="date" name="data" date-util format="dd/MM/yyyy"></date-util>
+                        	<input id="dataString" type="date" name="dataString">
                         </div>
        
                         <div class="uk-margin">

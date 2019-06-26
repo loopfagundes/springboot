@@ -22,7 +22,7 @@
 					    <td th:text="${agenda.tipo}"></td>
 					    <td th:text="${agenda.nome}"></td>
 					    <td th:text="${agenda.telefone}"></td>
-					    <td th:text="${agenda.data}"></td>
+					    <td th:text="${#dates.format(agenda.data, 'dd/MM/yyyy')}"></td>
 					    <td th:text="${agenda.local}"></td>
 					    <td><a th:href="@{'/editar/' + ${agenda.id}}"><span uk-icon="file-edit"></span></a></td>
    						<td><a th:href="@{'/excluir/' + ${agenda.id}}"><span uk-icon="trash"></span></a></td>  
@@ -53,7 +53,7 @@
                         </div>
                         
                         <div class="uk-margin">
-                       		 <input id="date" type="date" name="data">
+                       		 <input id="dataString" type="date" name="dataString">
                         </div>
                         
                         <div class="uk-margin">

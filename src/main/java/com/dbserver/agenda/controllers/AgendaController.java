@@ -1,7 +1,6 @@
 package com.dbserver.agenda.controllers;
 
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,8 +27,9 @@ public class AgendaController {
 	
 	@PostMapping("/")
 	public String novoContato(AgendaModel agenda) {
+		agenda.setDataStringToData();
 	    agendaRepository.save(agenda);
-	    return "redirect:/";
+	    return "redirect:/";	    
 	}
 	
 	@GetMapping("/editar/{id}")
@@ -42,6 +42,7 @@ public class AgendaController {
 	
 	@PostMapping("/editar")
 	public String editarContato(AgendaModel agenda) {
+		agenda.setDataStringToData();//mudamos de data2 para dataString, tem que mudar no html
 	    agendaRepository.save(agenda);
 	    return "redirect:/";
 	}

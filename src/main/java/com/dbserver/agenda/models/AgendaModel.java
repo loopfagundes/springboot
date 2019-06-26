@@ -1,13 +1,16 @@
 package com.dbserver.agenda.models;
 
 import java.io.Serializable;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="agenda")
@@ -28,7 +31,10 @@ public class AgendaModel implements Serializable {
 	private String local;
 	
 	@Column(name="data", nullable=false)
-	private String data;
+	private Date data;
+	
+	@Transient
+	private String dataString;
 	
 	@Column(name="tipo", nullable=false)
 	private String tipo;
@@ -65,20 +71,40 @@ public class AgendaModel implements Serializable {
 		this.local = local;
 	}
 
-	public String getData() {
+	public String getDataString() {
+		return dataString;
+	}
+
+	public void setDataString(String dataString) {
+		this.dataString = dataString;
+	}
+
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 
 	public String getTipo() {
 		return tipo;
 	}
-
+	
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 	
+	public void setDataStringToData() {
+		Date date = new Date();
+		
+		try {
+			date = new SimpleDateFormat("yyyy-MM-dd").parse(getDataString());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		 }
+		setData(date);
+	}
+
 }

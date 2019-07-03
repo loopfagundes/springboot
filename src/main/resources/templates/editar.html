@@ -15,29 +15,29 @@
 						 		 <option value="Compromisso">Compromisso</option> 
 							</select>
  						</div>
- 
        					
                    	    <div class="uk-margin">
                    		    <label class="uk-form-label" for="form-horizontal-text">Nome do contato</label>
 						<div class="uk-form-controls">
-                     		<input class="uk-input" id="form-horizontal-text" type="text" name="nome" placeholder="Nome do contato" th:value="${agenda.nome}">
+                     		<input class="uk-input" id="form-horizontal-text" type="text" name="nome" placeholder="Nome de contato" required th:value="${agenda.nome}">
                         </div>
                       
                         <div class="uk-margin">
                             <label class="uk-form-label" for="form-horizontal-text">Número do contato</label>
                         <div class="uk-form-controls">
-                            <input class="uk-input" id="form-horizontal-text" type="text" name="telefone" placeholder="Número do contato" th:value="${agenda.telefone}">
+                            <input class="uk-input" id="form-horizontal-text" type="tel" name="telefone" placeholder="Número de Telefone (xxxxxxxx)" th:value="${agenda.telefone}" pattern="^\d{4}\d{4}$" required >
                         </div>
                         
                         <div class="uk-margin">
-                            <label class="uk-form-label" for="form-horizontal-text">Data</label>
-                        	<input id="dataString" type="date" name="dataString">
+                            <label class="uk-form-label" for="form-horizontal-text">Quando</label>
+                            <div class="uk-form-controls">
+                        	<input class="uk-input" type="date" name="dataString" required>
                         </div>
        
                         <div class="uk-margin">
                             <label class="uk-form-label" for="form-horizontal-text">Local</label>
                         <div class="uk-form-controls">
-                            <input class="uk-input" id="form-horizontal-text" type="text" name="local" placeholder="Local" th:value="${agenda.local}">
+                            <input class="uk-input" id="form-horizontal-text" type="text" name="local" placeholder="Local" required th:value="${agenda.local}">
                         </div>
                   
                         <input type="hidden" name="id" th:value="${agenda.id}">

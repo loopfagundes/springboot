@@ -40,25 +40,26 @@
                        
                         <div class="uk-margin">
                        	    <select class = "uk-select" name="tipo">
-  							     <option value="Aniversário" selected>Aniversário</option>
+  							     <option value="Aniversário">Aniversário</option>
 						 		 <option value="Compromisso">Compromisso</option> 
 							</select>
  						</div>
  						
                         <div class="uk-margin">
-                            <input class="uk-input" type="text" name="nome" placeholder="Nome de contato">
+                            <input class="uk-input" type="text" name="nome" placeholder="Nome de contato" required>
                         </div>
                         <div class="uk-margin">
-                            <input class="uk-input" type="text" name="telefone" placeholder="Numero de telefone">
+                            <input class="uk-input" type="tel" name="telefone" placeholder="Numero de Telefone (xxxxxxxx)" pattern="^\d{4}\d{4}$" required>
+                        </div>
+                        
+                        <div class="uk-margin"><label class="uk-form-label" for="form-horizontal-text"></label>
+                       		 <input class="uk-input" type="date" name="dataString" required>
                         </div>
                         
                         <div class="uk-margin">
-                       		 <input id="dataString" type="date" name="dataString">
-                        </div>
-                        
-                        <div class="uk-margin">
-                            <input class="uk-input" type="text" name="local" placeholder="Local">
-                        </div>                
+                            <input class="uk-input" type="text" name="local" placeholder="Local" required>
+                        </div>   
+                                     
                     </fieldset>
                     <p class="uk-text-right">
                         <button class="uk-button uk-button-primary" type="submit">Adicionar</button>

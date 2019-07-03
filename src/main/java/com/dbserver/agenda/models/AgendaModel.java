@@ -103,7 +103,7 @@ public class AgendaModel implements Serializable {
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		 }
+		}
 		setData(date);
 	}
 
